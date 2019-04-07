@@ -6,6 +6,11 @@ class User:
 
     user_list = []
 
+    def __init__(self,user_name,password):
+
+        self.user_name = user_name
+        self.password = password
+
     def save_user(self):
         '''
         method that saves objects intp user list
@@ -13,7 +18,5 @@ class User:
 
         User.user_list.append(self)
 
-    def __init__(self,user_name,password):
-
-        self.user_name = user_name
-        self.password = password
+if __name__ == '__main__':
+    main()
