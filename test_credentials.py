@@ -15,13 +15,13 @@ class TestCredentials(unittest.TestCase):
         Function to check whether authenicate_user is working properly
         '''
         
-        self.new_user = User("badar","noor","badar124")
+        self.new_user = User("badar","badar124")
         self.new_user.save_user()
-        another_user = User("salax","noor","salaax234")
+        another_user = User("salax","salaax234")
         another_user.save_user()
 
         for user in User.user_list:
-            if user.first_name == another_user.first_name and user.last_name == another_user.last_name and user.password == another_user.password:
+            if user.first_name == another_user.first_name and user.password == another_user.password:
                 current_user = user.first_name
         return current_user
 
