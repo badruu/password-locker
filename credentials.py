@@ -10,7 +10,7 @@ class Credential:
     '''
 
     credentials_list = []
-    user_credential_list = []
+    user_credentials_list = []
 
     @classmethod
     def authenticate_user(cls,first_name,last_name,password):
@@ -33,3 +33,50 @@ class Credential:
         self.media_site = media_site
         self.account_name = account_name
         self.password = password
+
+    def save_credentials(self):
+        '''
+        method that saves newly created credentials
+        '''
+
+        Credential.credentials_list.append(self)
+
+    def generate_password(self):
+        '''
+        method that generates a random password
+        '''
+        letters = string.ascii_letters + string.digits
+        gen_pass = ''.join(random.choice(letters) for i in range (10))
+        return gen_pass
+
+    @classmethod
+    def display_credentials(cls,user_name):
+        '''
+        A method to show list of credentials saved
+        '''
+
+        user_credentials_list = []
+        for credential in cls.credentials_list:
+            if credential.user_name == user_name:
+                user_credentials_list.append(credential)
+        return user_credentials_list
+
+    @classmethod
+    def find_by_media_site(cls,media_site):
+        '''
+        A method that returns the media site by taking in name of the site
+        '''
+
+        for credential in cls.credentials_list:
+            if credential.media_site == media_site:
+                return credential
+
+    @classmethod
+    def copy_credential(cls,media_site):
+        '''
+        Method that copies credential's password
+        '''
+
+        find_credential = Credential.find_by_media_site(media_site)
+        return pyperclip.copy(find_credential.password)
+                
