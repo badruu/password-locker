@@ -38,5 +38,5 @@ python3.7
 Email: badrubadri92@gmail.com
 Name: Badrudin Noor.
 
-#Copyright
+# Copyright
 Copyright (c) {2019} Badrudin Noor.
