@@ -90,7 +90,34 @@ def main():
             print("To create a new account, fill in the following: ")
             first_name = input("Enter your first name -- ").strip()
             last_name = input("Enter your last name -- ").strip()
-            password = input("Enter a password -- ").strip()
+
+            while True:
+                print(" ")
+                print("-"*50)
+                print("""How would you like you password to be genrated:
+                    1) exp - for enter an existing password
+                    2) gn - for generate a password automatically
+                    3) ex - exit
+                """)
+                password_choice = input("Enter an option: ").lower().strip()
+                print("-"*50)
+                if password_choice == "exp":
+                    print(" ")
+                    password = input("Enter your password: ").strip()
+                    break
+
+                elif password_choice == "gn":
+                    password = generate_password()
+                    break
+
+                elif password_choice == "ex":
+                    break
+
+                else:
+                    print("Damn! Why don\'nt you follow simple instruction(!)")
+
+            # password = input("Enter a password -- ").strip()
+            # password = password_choice
 
             save_user(create_user(first_name,last_name,password))
 
@@ -105,7 +132,7 @@ def main():
             print("To login, provide you account information: ")
 
             user_name = input("Enter your first name -- ").strip()
-            password = input("Enter your password -- ")
+            password = input("Enter your password -- ").strip()
 
             user_exists = authentication(user_name,password)
 
