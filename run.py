@@ -67,7 +67,6 @@ def copy_credential(media_site):
 def main():
     print("\n")
     print("Hello there (!) \n welcome to password locker!")
-    print("\n")
 
     while True:
         # print("\n")
@@ -133,14 +132,14 @@ def main():
 
                     elif short_code == "cc":
                         print(" ")
-                        print("-"*50)
                         print("Enter the details of the account you would like to create:")
+                        print("-"*50)
                         media_site = input("Enter the site\'s name -- ").strip()
                         account_name = input("Enter your account name -- ").strip()
                         while True:
                             print(" ")
                             print("-"*50)
-                            print("""How would you like you password to be genrate:
+                            print("""How would you like you password to be genrated:
                                 1) exp - for enter an existing password
                                 2) gn - for generate a password automatically
                                 3) ex - exit
@@ -185,14 +184,19 @@ def main():
 
                         else: 
                             print(" ")
-                            print("You haven\'t yet saved any credentials")
+                            print("You haven\'t yet saved any credentials. \n TIP: Use cc to create and save a new credential")
                             print(" ")
 
                     elif short_code == "cp":
                         print(" ")
-                        chosen_site = input("Enter the site name for the credential password tou want to copy: ")
+                        chosen_site = input("Enter the site name for the credential password you want to copy: ")
+                        # if chosen_site = Credential.media_site:
+
                         copy_credential(chosen_site)
+
+                        
                         print(" ")
+                        # print(f"The password for {chosen_site} has been copied. \n This is the password: {copy_credential.password}")
 
                     else: 
                         print("""You don\'t seem to follow instructions, do you?
@@ -201,8 +205,10 @@ def main():
                         break
 
             else:
+                print("-"*50)
                 print(" ")
                 print("Try again or create an account!")
+                print(" ")
 
         else: 
             print(" ")
